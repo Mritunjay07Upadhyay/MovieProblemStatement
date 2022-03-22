@@ -11,7 +11,7 @@ public class MovieMain {
         boolean movieQuestion;
         while(true){
             System.out.println("Do you want to enter movie rating yes or no? ");
-            String inputString = scanner.nextLine();
+            String inputString = scanner.next();
             movieQuestion =inputString.equalsIgnoreCase("Yes");
             if(!movieQuestion){
                 System.out.println("Come again Later!");
@@ -19,15 +19,14 @@ public class MovieMain {
             }
 
             System.out.println("Enter the name of the movie: ");
-            String movieName = scanner.nextLine();
+            String movieName = scanner.next();
             System.out.println("Enter the movie rating(out of 10):");
             double rating = scanner.nextDouble();
-            scanner.next();
             Date movieDate = null;
             while( movieDate == null ) {
                 try {
                     System.out.println("Enter the release date(dd-mm-yyyy)");
-                    String inputDate = scanner.nextLine();
+                    String inputDate = scanner.next();
                     movieDate = new SimpleDateFormat("dd-MM-yyyy").parse(inputDate);
                 } catch (ParseException e){
                     System.out.println("You've entered the wrong date format");
@@ -35,6 +34,7 @@ public class MovieMain {
             }
             Movie movie = new Movie(movieName,movieDate,rating);
             mainMovieSet.add(movie);
+
         }
         System.out.println("***********Movie UnSorted Movies***************");
         System.out.println("Before Sorting the movie by name: ");
