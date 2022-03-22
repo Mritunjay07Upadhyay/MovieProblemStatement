@@ -1,27 +1,40 @@
 package com.devon.elesevier.movieProblemStatement;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class MovieMain {
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) {
         System.out.println("Welcome! To the movie review");
         Scanner scanner = new Scanner(System.in);
-        Set<Movie> mainMovieSet  = new HashSet<>();
+        HashSet<Movie> mainMovieSet  = new HashSet<>();
+        boolean movieQuestion;
+        while(true){
+            System.out.println("Do you want to enter movie rating yes or no? ");
+            String inputString = scanner.next();
+            movieQuestion =inputString.equalsIgnoreCase("Yes");
+            if(!movieQuestion){
+                System.out.println("Come again Later!");
+                break;
+            }
 
-        System.out.println("How many movies ratings do you want to enter? ");
-        int movieCount = scanner.nextInt();
-        for (int i = 0; i<movieCount;i++) {
             System.out.println("Enter the name of the movie: ");
             String movieName = scanner.next();
             System.out.println("Enter the movie rating(out of 10):");
             double rating = scanner.nextDouble();
-            System.out.println("Enter the release date(dd-mm-yyyy)");
-            String inputDate = scanner.next();
-            Date movieDate=new SimpleDateFormat("dd-MM-yyyy").parse(inputDate);
+            Date movieDate = null;
+            while( movieDate == null ) {
+                try {
+                    System.out.println("Enter the release date(dd-mm-yyyy)");
+                    String inputDate = scanner.next();
+                    movieDate = new SimpleDateFormat("dd-MM-yyyy").parse(inputDate);
+                } catch (ParseException e){
+                    System.out.println("You've entered the wrong date format");
+                }
+            }
             Movie movie = new Movie(movieName,movieDate,rating);
             mainMovieSet.add(movie);
+
         }
         System.out.println("***********Movie UnSorted Movies***************");
         System.out.println("Before Sorting the movie by name: ");

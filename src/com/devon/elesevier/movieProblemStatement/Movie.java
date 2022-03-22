@@ -8,6 +8,7 @@ public class Movie implements Comparable<Movie>{
     private Date movieDate;
     private double movieRating;
 
+
     public Movie(String movieName, Date movieDate, double movieRating) {
         this.movieName = movieName;
         this.movieDate = movieDate;
@@ -24,6 +25,18 @@ public class Movie implements Comparable<Movie>{
 
     public double getMovieRating() {
         return movieRating;
+    }
+
+    public void setMovieName(String movieName) {
+        this.movieName = movieName;
+    }
+
+    public void setMovieDate(Date movieDate) {
+        this.movieDate = movieDate;
+    }
+
+    public void setMovieRating(double movieRating) {
+        this.movieRating = movieRating;
     }
 
     @Override
