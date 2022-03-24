@@ -27,17 +27,6 @@ public class Movie implements Comparable<Movie>{
         return movieRating;
     }
 
-    public void setMovieName(String movieName) {
-        this.movieName = movieName;
-    }
-
-    public void setMovieDate(Date movieDate) {
-        this.movieDate = movieDate;
-    }
-
-    public void setMovieRating(double movieRating) {
-        this.movieRating = movieRating;
-    }
 
     @Override
     public int compareTo(Movie m) {

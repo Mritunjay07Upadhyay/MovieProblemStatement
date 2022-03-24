@@ -21,6 +21,7 @@ public class MovieMain {
                 break;
             }
 
+
             System.out.println("Enter the name of the movie: ");
             String movieName = scanner.next();
 
@@ -49,7 +50,7 @@ public class MovieMain {
             mainMovieSet.add(movie);
 
         }
-        Set<Movie> movieTreeSet = new TreeSet<>(mainMovieSet);
+       // Set<Movie> movieTreeSet = new TreeSet<>(mainMovieSet);
         List<Movie> list = new ArrayList<>(mainMovieSet);
         boolean sortQuestion;
         while (true) {
@@ -75,9 +76,10 @@ public class MovieMain {
                         break;
                     case 2: System.out.println("***********Movie Sorted By Titles***************");
                         System.out.println("After sorting movie by there titles: ");
+                        Collections.sort(list);
                         for (Movie m :
-                                movieTreeSet) {
-                            System.out.println(m.getMovieName() + " " + m.getMovieDate() + " " + m.getMovieRating());
+                                list) {
+                            System.out.println(m.getMovieName() + " " + " " + m.getMovieRating());
                         }
                         break;
                     case 3:System.out.println("***********Movie Sorted By Ratings***************");
